@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 import authRouter from './router/auth.js';
+import dealRouter from './router/deals.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 
@@ -16,6 +17,7 @@ export const setupServer = () => {
   app.use(bodyParser.json());
 
   app.use('/auth', authRouter);
+  app.use('/deals', dealRouter);
 
   app.use(errorHandler);
 
